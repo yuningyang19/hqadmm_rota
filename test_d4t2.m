@@ -1,13 +1,13 @@
 clear; clc;
 
-addpath  ./alg
-addpath  ./Tensorlab
-addpath ./loss
+addpath alg
+addpath Tensorlab
+addpath loss
 n=20;
 dim = [	n  n n  n ]; sz = dim;
 r = 5;
 t=2;
-MaxIter = 2000;
+max_iter = 2000;
 
 %%%%%% setting
 omega = abs(randn(r,1));
@@ -42,8 +42,8 @@ T = T1/frob(T1)+ noise_level* Cauchy_noise/frob(Cauchy_noise) + get_outlier_unif
 %%%% end of the setting of the problem
 
 
-options.TolX =  1e-6;
-options.MaxIter = MaxIter;
+options.tol_relstep =  1e-6;
+options.max_iter = max_iter;
 options.t = t;
 options.loss_weight = @cauchy;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
